@@ -13,3 +13,14 @@ Entry.prototype.countVowels = function() {
   });
   return result;
 }
+
+Entry.prototype.countConsonants = function() {
+  const bodyArr = this.body.split("");
+  let result = 0;
+  bodyArr.forEach(function(element) {
+    if (element.match(/[a-z]/gi) && !element.match(/[aeiou]/gi)) {
+      result += 1;
+    }
+  });
+  return result;
+}
