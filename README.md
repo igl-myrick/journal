@@ -27,3 +27,7 @@ Describe: Entry.prototype.getTeaser
 Test: It should return the first sentence in the entry's body.
 Code: let newEntry = newEntry("Title", "First sentence.");
 Expect: newEntry.getTeaser = "First sentence."
+
+Test: If the first sentence in the entry's body is longer than eight words, it should return the first eight words of the sentence.
+Code: let newEntry = newEntry("Title", "This is a very, very, very, very, very long first sentence.");
+Expect: newEntry.getTeaser = "This is a very, very, very, very, very ..."
