@@ -24,3 +24,12 @@ Entry.prototype.countConsonants = function() {
   });
   return result;
 }
+
+Entry.prototype.countWords = function() {
+  const bodyArr = this.body.split(" ");
+  let result = 0;
+  bodyArr.forEach(function(element) {
+    result += 1;
+  });
+  return result;
+}
