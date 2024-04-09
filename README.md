@@ -15,3 +15,9 @@ Describe: Entry.prototype.countConsonants
 Test: It should return the number of consonants in the entry's body.
 Code: let newEntry = new Entry("Title", "Text");
 Expect: newEntry.countConsonants = 3
+
+Describe: Entry.prototype.countWords
+
+Test: It should return the number of words in the entry's body.
+Code: let newEntry = new Entry("Title", "Text");
+Expect: newEntry.countWords = 1
