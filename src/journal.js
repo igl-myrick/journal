@@ -33,3 +33,14 @@ Entry.prototype.countWords = function() {
   });
   return result;
 }
+
+Entry.prototype.getTeaser = function() {
+  const bodyArr = this.body.split("");
+  let count = 0;
+  bodyArr.forEach(function(element) {
+    count += 1;
+  });
+  const periodIndex = bodyArr.indexOf(".") + 1;
+  bodyArr.splice(periodIndex, count);
+  return bodyArr.join("");
+}
