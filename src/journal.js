@@ -1,45 +1,36 @@
 function Entry(titleText, bodyText) {
   this.title = titleText;
   this.body = bodyText;
-  this.charCount = bodyText.split("");
-  this.wordCount = bodyText.split(" ");
+  this.charArray = bodyText.split("");
+  this.wordArray = bodyText.split(" ");
+  this.vowelCount = 0;
+  this.consonantCount = 0;
+  this.wordCount = 0;
 }
 
 Entry.prototype.countVowels = function() {
-  let result = 0;
-  this.charCount.forEach(function(element) {
+  this.charArray.forEach(function(element) {
     if (element.match(/[aeiou]/gi)) {
-      result += 1;
+      this.vowelCount += 1;
+    } else if (element.match(/[^aeiou\d\W]+/gi)) { // regex looks for consonants only
+      this.consonantCount +=1;
     }
   });
-  return result;
-}
-
-Entry.prototype.countConsonants = function() {
-  let result = 0;
-  this.charCount.forEach(function(element) {
-    if (element.match(/[^aeiou\d\W]+/gi)) { // regex looks for consonants only
-      result += 1;
-    }
-  });
-  return result;
 }
 
 Entry.prototype.countWords = function() {
-  let result = 0;
-  this.wordCount.forEach(function(element) {
-    result += 1;
+  this.wordArray.forEach(function(element) {
+    this.wordCount += 1;
   });
-  return result;
 }
 
 Entry.prototype.getTeaser = function() {
-  let count = 0;
-  this.charCount.forEach(function(element) {
-    count += 1;
+  let charCount = 0;
+  this.charArray.forEach(function(element) {
+    charCount += 1;
   });
-  const periodIndex = this.charCount.indexOf(".") + 1;
-  const teaser = this.charCount.toSpliced(periodIndex, count).join("");
+  const periodIndex = this.charArray.indexOf(".") + 1;
+  const teaser = this.charArray.toSpliced(periodIndex, charCount).join("");
   const teaserArr = teaser.split(" ");
   if (Object.keys(teaserArr).length > 8) {
     teaserArr.splice(8, 1);
@@ -48,9 +39,3 @@ Entry.prototype.getTeaser = function() {
     return teaserArr.join(" ");
   }
 }
-
-const newEntry = new Entry("test", "Abc def ghi jkl mno pqr stu vwx yz. One two three four five six seven eight nine.")
-
-const firstSentence = newEntry.getTeaser();
-
-console.log(firstSentence);
