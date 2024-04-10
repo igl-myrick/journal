@@ -8,25 +8,25 @@ function Entry(titleText, bodyText) {
   this.wordCount = 0;
 }
 
-Entry.prototype.countVowels = function() {
-  this.charArray.forEach(function(element) {
+Entry.prototype.countCharacters = function() {
+  for (const element of this.charArray) {
     if (element.match(/[aeiou]/gi)) {
       this.vowelCount += 1;
     } else if (element.match(/[^aeiou\d\W]+/gi)) { // regex looks for consonants only
       this.consonantCount +=1;
     }
-  });
+  }
 }
 
 Entry.prototype.countWords = function() {
-  this.wordArray.forEach(function(element) {
+  for (const word of this.wordArray) {
     this.wordCount += 1;
-  });
+  }
 }
 
 Entry.prototype.getTeaser = function() {
   let charCount = 0;
-  this.charArray.forEach(function(element) {
+  this.charArray.forEach(function() {
     charCount += 1;
   });
   const periodIndex = this.charArray.indexOf(".") + 1;
