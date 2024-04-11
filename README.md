@@ -4,21 +4,23 @@ Test: It should return a new object with a title and body property.
 Code: let newEntry = new Entry("Title", "Text");
 Expect: newEntry = { title: "Title", body: "Text" }
 
-Describe: Entry.prototype.countVowels
-
-Test: It should return the number of vowels in the entry's body.
+Test: It should return an object with various properties including values to count words, consonants, and vowels.
 Code: let newEntry = new Entry("Title", "Text");
-Expect: newEntry.countVowels = 1
+Expect: newEntry = { title: "Title", body: "Text", charArray: ["T", "e", "x", "t"], wordArray: ["Text"], vowelCount: 0, consonantCount: 0, wordCount: 0 }
 
-Describe: Entry.prototype.countConsonants
+Describe: Entry.prototype.countCharacters
 
-Test: It should return the number of consonants in the entry's body.
+Test: It should update the vowelCount property in the Entry object.
 Code: let newEntry = new Entry("Title", "Text");
-Expect: newEntry.countConsonants = 3
+Expect: newEntry.vowelCount = 1
+
+Test: It should update the vowelCount and consonantCount properties in the Entry object.
+Code: let newEntry = new Entry("Title", "Text");
+Expect: newEntry.vowelCount = 1, newEntry.vowelCount = 3
 
 Describe: Entry.prototype.countWords
 
-Test: It should return the number of words in the entry's body.
+Test: It should update the wordCount property in the Entry object.
 Code: let newEntry = new Entry("Title", "Text");
 Expect: newEntry.countWords = 1
 
