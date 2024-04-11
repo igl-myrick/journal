@@ -12,7 +12,7 @@ Entry.prototype.countCharacters = function() {
   for (const element of this.charArray) {
     if (element.match(/[aeiou]/gi)) {
       this.vowelCount += 1;
-    } else if (element.match(/[^aeiou\d\W]+/gi)) { // regex looks for consonants only
+    } else if (element.match(/[^_aeiou\d\W]+/gi)) { // regex looks for consonants only
       this.consonantCount +=1;
     }
   }
