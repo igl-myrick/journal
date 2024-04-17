@@ -5,15 +5,28 @@
   <title>Journal</title>
 </head>
 <body>
-  <h2>Journal</h2>
-  <p>Create a journal entry:</p>
-  <form id="new-entry-form">
-    <label for="title">Title:</label>
-    <input id="title" type="text"><br>
-    <label for="entry">Entry:</label>
-    <input id="entry" type="text"><br>
-    <button type="submit" id="submission-button">Submit</button>
-  </form>
-  <div id="output"></div>
+  <h1>Journal</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Create a journal entry</h2>
+        <form id="new-entry-form">
+          <label for="title">Title:</label>
+          <input id="title" type="text"><br>
+          <label for="entry">Entry:</label>
+          <input id="entry" type="text"><br>
+          <button type="submit" id="submission-button">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <h2>Entries</h2>
+        <div id="entry-list"></div>
+      </div>
+      <div class="col-md-4">
+        <h2>View an entry</h2>
+        <div id="entry-details"></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
