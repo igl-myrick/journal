@@ -1,4 +1,4 @@
-function Entry(titleText, bodyText) {
+export default function Entry(titleText, bodyText) {
   this.title = titleText;
   this.body = bodyText;
   this.charArray = bodyText.split("");
@@ -16,26 +16,16 @@ Entry.prototype.countCharacters = function() {
       this.consonantCount +=1;
     }
   }
-}
+};
 
 Entry.prototype.countWords = function() {
   for (const word of this.wordArray) {
     this.wordCount += 1;
   }
-}
+};
 
 Entry.prototype.getTeaser = function() {
-  let charCount = 0;
-  this.charArray.forEach(function() {
-    charCount += 1;
-  });
-  const periodIndex = this.charArray.indexOf(".") + 1;
-  const teaser = this.charArray.toSpliced(periodIndex, charCount).join("");
-  const teaserArr = teaser.split(" ");
-  if (Object.keys(teaserArr).length > 8) {
-    teaserArr.splice(8, 1);
-    return teaserArr.join(" ") + " ...";
-  } else {
-    return teaserArr.join(" ");
-  }
-}
+  this.countWords();
+  const teaser = this.wordArray.slice(0, 8);
+  return teaser.join(" ") + " ...";
+};
